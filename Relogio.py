@@ -14,25 +14,22 @@ import time
 
 class Clock:
     
-    def __init__(self):
-        self.janelinha = tk.Tk()
-        self.clock = tk.Label(self.janelinha, font=("times", 50, "bold"),fg = "white", bg = "black")
+    def __init__(self, telinha):
+        self.telinha = telinha
+        self.janela = self.telinha.janelinha
+        self.clock = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "black")
     
     def tick(self):
-        time_string = time.strftime("%A %B %d \n %Y %H:%M:%S")
-        self.clock.config(text=time_string)
+        time_string = time.strftime("%A %d %B  \n %Y %H:%M")
+        self.clock.config(text = time_string)
         self.clock.after(200, self.tick)
     
-    def iniciar(self):
-        self.inicia_clock()
-        self.janelinha.mainloop()
-        
-        
+       
     def inicia_clock(self):
         
         self.clock.grid(row = 0, column = 1)    
         self.tick()
-        
 
-relogio = Clock()
-relogio.iniciar()
+
+#relogio = Clock()
+#relogio.iniciar()
