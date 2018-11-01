@@ -10,5 +10,6 @@ client.edition = 'Brazil'
 client.topic = 'business'
 client.language = 'portuguese'
 
-print(news)
+a= len(news)
+print(a)
 
