@@ -5,10 +5,13 @@ Created on Tue Oct 23 14:11:06 2018
 
 @author: joseantonio
 """
+# Código de uma Api
+# https://pypi.org/project/weather-api/
 
 import tkinter as tk
 import sys
 from weather import Weather, Unit
+
 
 class tempo:
     
@@ -27,7 +30,7 @@ class tempo:
         self.previsao.after(200, self.clima)     
 
 
-    def inicia(self):
+    def inicia_tempo(self):
         self.previsao.grid(row = 0, column = 0)
         self.clima()
 
