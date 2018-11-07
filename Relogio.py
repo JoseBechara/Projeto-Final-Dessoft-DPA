@@ -31,5 +31,7 @@ class Clock:
         self.tick()
 
 
+
+
 #relogio = Clock()
 #relogio.iniciar()
