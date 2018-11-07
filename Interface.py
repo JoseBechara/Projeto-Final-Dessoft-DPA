@@ -15,6 +15,13 @@ from News import News
 class interface:
     def __init__(self):
         self.janelinha = tk.Tk()
+        self.janelinha.title("SmartMirror")
+        pad = 1
+        self.janelinha.geometry("{0}x{1}+0+0".format(self.janelinha.winfo_screenwidth() - pad, self.janelinha.winfo_screenheight() - 10*pad))
+        self.janelinha.resizable(0, 0)
+        print(self.janelinha.winfo_screenwidth() - pad)
+        print(self.janelinha.winfo_screenheight() - 10*pad)
+        
         self.janelinha.configure(background = "black")
         self.cl = Clock(self)
         self.tempo = tempo(self)
@@ -22,6 +29,7 @@ class interface:
     
         
     def iniciar(self):
+       
         self.cl.inicia_clock()
         self.tempo.inicia_tempo()
         self.news.inicia_noticias()
