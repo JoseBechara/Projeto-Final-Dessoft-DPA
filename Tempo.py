@@ -32,8 +32,10 @@ class tempo:
 
     def inicia_tempo(self):
         self.previsao.place(x = 1260, y = 0)
-        print(self.previsao.cget("width"))
+        self.janela.update()
+        print(self.previsao.winfo_width())
         print(self.previsao.winfo_height())
+        
         self.clima()
 
 

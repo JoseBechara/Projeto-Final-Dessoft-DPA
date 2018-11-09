@@ -2,7 +2,17 @@ from gnewsclient import gnewsclient
 import requests
 from io import BytesIO
 import tkinter as tk
-#from PIL import ImageTk, Image
+from PIL import ImageTk, Image
+import os
+
+
+from urllib.request import urlopen
+
+
+
+
+
+#import matplotlib.pyplot as plt
 
 # Sincronização das notícias do Gloogle News Feed por uma Api
 # https://pypi.org/project/gnewsclient/
@@ -15,9 +25,12 @@ class News:
         self.news = None
         self.lista_imagens = []
         self.lista_titulos = []
+        tamanho = 50
+        self.largura = 4*tamanho
+        self.altura = 3*tamanho
         self.titulo = tk.Label(self.janela, font=("times", 20, "bold"),fg = "white", bg = "green")
-        #self.imagem = tk.Label(self.janela, image = ImageTk.PhotoImage(Image.open("True1.gif")))
-        self.i = 0
+        self.imagem = tk.Label(self.janela, width = self.largura, height = self.altura)
+        self.i = 0        
         self.temponoticia = 3000 #[ms]
         
 
@@ -36,16 +49,28 @@ class News:
             
     def update_titulo_imagem(self):
         
-
+        
         if self.i < len(self.news):
+#            response = requests.get(self.news[self.i]["img"])
+#            
+#            img = Image.open(BytesIO(response.content))
+#            foto = ImageTk.PhotoImage(img)
+#            img = ImageTk.PhotoImage(Image.open("/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.jpg"))
+#            print(foto)
             self.titulo.config(text = self.news[self.i]["title"])
+            self.imagem.config(image = "/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.jpg")
             self.i += 1
+            self.titulo.place(x = self.largura + 30, y = self.telinha.janelinha.winfo_screenheight() - 55)
+            self.imagem.place(x = 20, y = self.telinha.janelinha.winfo_screenheight() - self.altura - 30 )
             self.titulo.after(self.temponoticia, self.update_titulo_imagem)
-            self.titulo.place(x = 0, y = 860)
+            
 
         else:
             self.i = 0
             self.atualiza_news()
+            
+#        print(img)
+#        print('')
            
             
             
