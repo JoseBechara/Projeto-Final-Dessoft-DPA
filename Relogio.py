@@ -20,7 +20,9 @@ class Clock:
         self.clock = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "red")
     
     def tick(self):
-        time_string = time.strftime("(diadasemana[%A])  (meses[%B]) %d \n %Y %H:%M")
+        time_string = time.strftime("%A %B %d \n %Y %H:%M")
+        diadasemana_string = time.strftime("%A")
+        print(diadasemana_string)
         self.clock.config(text = time_string)
         self.clock.after(200, self.tick)
     
