@@ -51,14 +51,13 @@ class News:
         
         
         if self.i < len(self.news):
-#            response = requests.get(self.news[self.i]["img"])
-#            
-#            img = Image.open(BytesIO(response.content))
-#            foto = ImageTk.PhotoImage(img)
+            response = requests.get(self.news[self.i]["img"])
+            img = Image.open(BytesIO(response.content))
+            foto = ImageTk.PhotoImage(img)
 #            img = ImageTk.PhotoImage(Image.open("/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.jpg"))
 #            print(foto)
             self.titulo.config(text = self.news[self.i]["title"])
-            self.imagem.config(image = "/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.jpg")
+            self.imagem.config(image = foto)
             self.i += 1
             self.titulo.place(x = self.largura + 30, y = self.telinha.janelinha.winfo_screenheight() - 55)
             self.imagem.place(x = 20, y = self.telinha.janelinha.winfo_screenheight() - self.altura - 30 )
