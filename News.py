@@ -54,10 +54,10 @@ class News:
             response = requests.get(self.news[self.i]["img"])
             img = Image.open(BytesIO(response.content))
             foto = ImageTk.PhotoImage(img)
-#            img = ImageTk.PhotoImage(Image.open("/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.jpg"))
+            img = ImageTk.PhotoImage(Image.open("/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png"))
 #            print(foto)
             self.titulo.config(text = self.news[self.i]["title"])
-            self.imagem.config(image = foto)
+            self.imagem.config(image = img)
             self.i += 1
             self.titulo.place(x = self.largura + 30, y = self.telinha.janelinha.winfo_screenheight() - 55)
             self.imagem.place(x = 20, y = self.telinha.janelinha.winfo_screenheight() - self.altura - 30 )
