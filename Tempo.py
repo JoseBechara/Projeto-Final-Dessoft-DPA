@@ -26,19 +26,20 @@ class tempo:
         self.weather = Weather(unit=Unit.CELSIUS)
         self.location = self.weather.lookup_by_location('sao paulo')
         self.condition = self.location.condition
+        
         self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, self.condition.text))
+        self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_width(), y = 0)
         self.previsao.after(200, self.clima)     
 
 
     def inicia_tempo(self):
-        self.previsao.place(x = 1260, y = 0)
-        self.janela.update()
+        
+
+        self.clima()
+        self.previsao.update()
         print(self.previsao.winfo_width())
         print(self.previsao.winfo_height())
         
-        self.clima()
-
-
 
 #for i in dir(condition):
 #    print(i)
