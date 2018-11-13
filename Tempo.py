@@ -11,10 +11,11 @@ Created on Tue Oct 23 14:11:06 2018
 import tkinter as tk
 from weather import Weather, Unit
 
+from Traducao_previsao import tempotraduzido
 
 class tempo:
     
-    def __init__(self, telinha):
+    def _init_(self, telinha):
         self.telinha = telinha
         self.janela = self.telinha.janelinha
         self.previsao = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "blue")
@@ -25,7 +26,7 @@ class tempo:
     def clima(self):
         self.weather = Weather(unit=Unit.CELSIUS)
         self.location = self.weather.lookup_by_location('sao paulo')
-        self.condition = self.location.condition
+        self.condition = tempotraduzido[self.location.code]
         
         self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, self.condition.text))
         self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_width(), y = 0)
@@ -39,8 +40,4 @@ class tempo:
         self.previsao.update()
         print(self.previsao.winfo_width())
         print(self.previsao.winfo_height())
-        
-
-#for i in dir(condition):
-#    print(i)
 
