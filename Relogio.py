@@ -7,8 +7,8 @@ This is a temporary script file.
 
 import sys
 import tkinter as tk
-import time 
- 
+import time
+from Traducao_relogio import diadasemana, meses
 
 
 
