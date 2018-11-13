@@ -8,9 +8,9 @@ Created on Tue Oct 23 14:11:06 2018
 # Sincronização da previsão do Yahoo Weather por uma Api
 # https://pypi.org/project/weather-api/
 
+
 import tkinter as tk
 from weather import Weather, Unit
-
 from Traducao_previsao import tempotraduzido
 
 class tempo:
@@ -40,4 +40,3 @@ class tempo:
         self.previsao.update()
         print(self.previsao.winfo_width())
         print(self.previsao.winfo_height())
-
