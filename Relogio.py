@@ -17,7 +17,7 @@ class Clock:
     def __init__(self, telinha):
         self.telinha = telinha
         self.janela = self.telinha.janelinha
-        self.clock = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "red")
+        self.clock = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "black")
     
     def tick(self):
         dia_semana = time.strftime("%A")

@@ -28,10 +28,10 @@ class News:
         tamanho = 50
         self.largura = 4*tamanho
         self.altura = 3*tamanho
-        self.titulo = tk.Label(self.janela, font=("times", 20, "bold"),fg = "white", bg = "green")
-        self.imagem = tk.Label(self.janela, width = self.largura, height = self.altura)
+        self.titulo = tk.Label(self.janela, font=("times", 20, "bold"),fg = "white", bg = "black")
+        self.imagem = None
         self.i = 0        
-        self.temponoticia = 3000 #[ms]
+        self.temponoticia = 10000 #[ms]
         
 
     def parametros(self):
@@ -53,16 +53,18 @@ class News:
         if self.i < len(self.news):
             response = requests.get(self.news[self.i]["img"])
             img = Image.open(BytesIO(response.content))
-#            foto = ImageTk.PhotoImage(img)
-            path = '/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png'
-            img = ImageTk.PhotoImage(Image.open(path))
+            foto = ImageTk.PhotoImage(img)
+#            path = '/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png'
+#            img = ImageTk.PhotoImage(Image.open(path))
 #            print(foto)
             self.titulo.config(text = self.news[self.i]["title"])
-            self.imagem.config(image = img)
+            
+            self.imagem = tk.Label(self.janela, width = self.largura, height = self.altura, image = foto)
             self.i += 1
             self.titulo.place(x = self.largura + 30, y = self.telinha.janelinha.winfo_screenheight() - 55)
             self.imagem.place(x = 20, y = self.telinha.janelinha.winfo_screenheight() - self.altura - 30 )
             self.titulo.after(self.temponoticia, self.update_titulo_imagem)
+            self.janela.mainloop()
             
 
         else:
