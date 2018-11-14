@@ -53,6 +53,7 @@ class News:
         if self.i < len(self.news):
             response = requests.get(self.news[self.i]["img"])
             img = Image.open(BytesIO(response.content))
+            img = img.resize((self.largura, self.altura), Image.ANTIALIAS) #The (250, 250) is (height, width)
             foto = ImageTk.PhotoImage(img)
 #            path = '/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png'
 #            img = ImageTk.PhotoImage(Image.open(path))
