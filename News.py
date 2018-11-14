@@ -53,8 +53,9 @@ class News:
         if self.i < len(self.news):
             response = requests.get(self.news[self.i]["img"])
             img = Image.open(BytesIO(response.content))
-            foto = ImageTk.PhotoImage(img)
-            img = ImageTk.PhotoImage(Image.open("/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png"))
+#            foto = ImageTk.PhotoImage(img)
+            path = '/Users/joseantonio/Documents/GitHub/Projeto-Final-Dessoft-DPA/dory.png'
+            img = ImageTk.PhotoImage(Image.open(path))
 #            print(foto)
             self.titulo.config(text = self.news[self.i]["title"])
             self.imagem.config(image = img)
