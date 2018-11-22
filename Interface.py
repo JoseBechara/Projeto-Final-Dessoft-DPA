@@ -11,6 +11,7 @@ import tkinter as tk
 from Relogio import Clock
 from Tempo import tempo
 from News import News
+from camera import Camera
 
 class interface:
     def __init__(self):
@@ -26,7 +27,7 @@ class interface:
         self.cl = Clock(self)
         self.tempo = tempo(self)
         self.news = News(self)
-    
+        self.camera = camera(self)
         
     def iniciar(self):
        
@@ -34,7 +35,7 @@ class interface:
         self.tempo.inicia_tempo()
         self.news.inicia_noticias()
         self.janelinha.mainloop()
-                
+        self.Camera.webcam()
         
 main = interface()
 main.iniciar()
