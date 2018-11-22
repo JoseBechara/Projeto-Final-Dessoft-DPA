@@ -15,7 +15,7 @@ from Traducao_previsao import tempotraduzido
 
 class tempo:
     
-    def _init_(self, telinha):
+    def __init__(self, telinha):
         self.telinha = telinha
         self.janela = self.telinha.janelinha
         self.previsao = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "blue")
@@ -26,9 +26,9 @@ class tempo:
     def clima(self):
         self.weather = Weather(unit=Unit.CELSIUS)
         self.location = self.weather.lookup_by_location('sao paulo')
-        self.condition = tempotraduzido[self.location.code]
+        self.condition = self.location.condition
         
-        self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, self.condition.text))
+        self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, tempotraduzido[int(self.condition.code)]))
         self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_width(), y = 0)
         self.previsao.after(200, self.clima)     
 
