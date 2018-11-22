@@ -38,9 +38,8 @@ class interface:
         self.cl.inicia_clock()
         self.tempo.inicia_tempo()
         self.news.inicia_noticias()
-        while True:
             
-            self.janelinha.update()
+        self.janelinha.mainloop()
 #        self.Camera.webcam()
         
 main = interface()
