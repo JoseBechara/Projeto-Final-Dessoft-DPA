@@ -12,6 +12,8 @@ Created on Tue Oct 23 14:11:06 2018
 import tkinter as tk
 from weather import Weather, Unit
 from Traducao_previsao import tempotraduzido
+from PIL import ImageTk, Image
+import os
 
 class tempo:
     
@@ -19,6 +21,7 @@ class tempo:
         self.telinha = telinha
         self.janela = self.telinha.janelinha
         self.previsao = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "black")
+        self.figura = None
         
         
         
@@ -30,6 +33,10 @@ class tempo:
         
         self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, tempotraduzido[int(self.condition.code)]))
         self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_width() - 10, y = 0)
+        
+#        img = Image.open("Tornado.png")
+#        self.figura = tk.Label(self.janela, image = img) 
+        
         self.previsao.after(200, self.clima)     
 
 
