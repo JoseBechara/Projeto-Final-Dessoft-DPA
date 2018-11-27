@@ -29,7 +29,7 @@ class News:
         self.largura = 4*tamanho
         self.altura = 3*tamanho
         self.titulo = tk.Label(self.janela, font=("times", 20, "bold"),fg = "white", bg = "black")
-        self.imagem = None
+        self.imagem = tk.Label(self.janela, width = self.largura, height = self.altura)
         self.i = 0        
         self.temponoticia = 10000 #[ms]
         
@@ -57,15 +57,16 @@ class News:
             foto = ImageTk.PhotoImage(img)
 
             self.titulo.config(text = self.news[self.i]["title"])
+            self.imagem.config(image = foto)
+            self.image = foto
             
-            self.imagem = tk.Label(self.janela, width = self.largura, height = self.altura, image = foto)
-            self.i += 1
             self.titulo.place(x = self.largura + 30, y = self.telinha.janelinha.winfo_screenheight() - 55)
-            
             self.imagem.place(x = 20, y = self.telinha.janelinha.winfo_screenheight() - self.altura - 30 )
             
+            self.i += 1
             self.titulo.after(self.temponoticia, self.update_titulo_imagem)
-            self.janela.mainloop()
+            
+            
             
 
         else:
