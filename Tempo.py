@@ -43,7 +43,7 @@ class tempo:
         foto = ImageTk.PhotoImage(img)
         
         self.previsao.config(text = "{0} ˚C  \n {1}".format(self.condition.temp, tempotraduzido[int(self.condition.code)]))
-        self.figura.config(image = foto)
+        self.figura.config(image = foto, bg = "black")
         self.figura.image = foto
         
         self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_reqwidth() - 10, y = 0)
