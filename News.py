@@ -4,8 +4,6 @@ from io import BytesIO
 import tkinter as tk
 from PIL import ImageTk, Image
 import os
-
-
 from urllib.request import urlopen
 
 
@@ -49,8 +47,10 @@ class News:
             
     def update_titulo_imagem(self):
         
-        
-        if self.i < len(self.news):
+        if len(self.news) == 0:
+            self.titulo.after(self.temponoticia, self.atualiza_news)
+            
+        elif self.i < len(self.news):
             response = requests.get(self.news[self.i]["img"])
             img = Image.open(BytesIO(response.content))
             img = img.resize((self.largura, self.altura), Image.ANTIALIAS) 
@@ -80,8 +80,11 @@ class News:
     def atualiza_news(self):
         self.client = gnewsclient()
         self.parametros()
-        self.news = self.client.get_news()
-        self.update_titulo_imagem()
+        try:
+            self.news = self.client.get_news()
+        except IndexError:
+            self.news = []
+            self.update_titulo_imagem()
         
         
         

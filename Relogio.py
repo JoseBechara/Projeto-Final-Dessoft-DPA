@@ -17,7 +17,7 @@ class Clock:
     def __init__(self, telinha):
         self.telinha = telinha
         self.janela = self.telinha.janelinha
-        self.clock = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "black")
+        self.clock = tk.Label(self.janela, font=("times", 30, "bold"),fg = "white", bg = "black")
     
     def tick(self):
 
@@ -38,7 +38,7 @@ class Clock:
        
     def inicia_clock(self):
         
-        self.clock.place(anchor = "nw")    
+        self.clock.place(x = 0, y = 10)    
         self.tick()
 
 

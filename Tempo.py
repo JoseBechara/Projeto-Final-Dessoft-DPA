@@ -28,7 +28,7 @@ class tempo:
         tamanho = 40
         self.largura = 4*tamanho
         self.altura = 3*tamanho
-        self.previsao = tk.Label(self.janela, font=("times", 50, "bold"),fg = "white", bg = "black")
+        self.previsao = tk.Label(self.janela, font=("times", 30, "bold"),fg = "white", bg = "black")
         self.figura = tk.Label(self.janela, width = self.largura, height = self.altura)
         
     def clima(self):
@@ -46,8 +46,8 @@ class tempo:
         self.figura.config(image = foto, bg = "black")
         self.figura.image = foto
         
-        self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_reqwidth() - 10, y = 0)
-        self.figura.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_reqwidth() - self.figura.winfo_reqwidth() - 10, y = 0)
+        self.previsao.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_reqwidth() - 60, y = 10)
+        self.figura.place(x = self.telinha.janelinha.winfo_screenwidth() - self.previsao.winfo_reqwidth() - self.figura.winfo_reqwidth() - 50, y = 10)
 
         self.previsao.after(60000, self.clima)  
         self.janela.update()

@@ -11,7 +11,6 @@ import tkinter as tk
 from Relogio import Clock
 from Tempo import tempo
 from News import News
-
 import os
 
 
@@ -23,7 +22,7 @@ class interface:
         self.janelinha = tk.Tk()
         self.janelinha.title("SmartMirror")
         pad = 1
-        self.janelinha.geometry("{0}x{1}+0+0".format(self.janelinha.winfo_screenwidth() - pad, self.janelinha.winfo_screenheight() - 10*pad))
+        self.janelinha.geometry("{0}x{1}+0+0".format(self.janelinha.winfo_screenwidth() - 50*pad, self.janelinha.winfo_screenheight() - 10*pad))
         self.janelinha.resizable(0, 0)
 
         
